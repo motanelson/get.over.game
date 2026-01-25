@@ -36,7 +36,7 @@ for counter in range(len(c)):
                 backs=y[0]
                 print("["+backs+"]")
                 if len(y)>1 and len(t)>1:
-                    print(y[0]+" = "+t[1])
+                    print(y[1]+" = "+t[1])
             else:
                 if len(y)>1 and len(t)>1:
-                    print(y[0]+" = "+t[1])
+                    print(y[1]+" = "+t[1])
