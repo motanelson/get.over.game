@@ -1,0 +1,11 @@
+/sound/music=on
+/sound
+/sound/sound=on
+/sound/volume=8
+/keys/down=down
+/keys/fire=space
+/keys/up=up
+/keys/left=left
+/keys/rigth=rigth
+/keys
+
