@@ -1,6 +1,0 @@
-/paint/paint=paint.exe
-/paint
-/user/calc=calc.exe
-/user
-/user/notepad=notepa.exe
-
