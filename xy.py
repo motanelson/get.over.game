@@ -21,13 +21,16 @@ def loads(s):
     img.putdata(new_data)
 
     return img
+def getxy():
+    xy=[]
+    for n in range(20):
+        xx=int(int(random.random()*60)*10)
+        yy=int(int(random.random()*40)*10)
+        xy=xy+[xx]+[yy]
+    return xy
 pic = ImageTk.PhotoImage(loads("bit.png"))
 pic2 = ImageTk.PhotoImage(loads("pin.png"))
-xy=[]
-for n in range(20):
-    xx=int(int(random.random()*60)*10)
-    yy=int(int(random.random()*40)*10)
-    xy=xy+[xx]+[yy]
+xy=getxy()
 xxx=50
 yyy=50
 xxxx=0
