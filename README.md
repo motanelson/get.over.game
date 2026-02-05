@@ -1,1 +1,1 @@
-config files into game data
+game get over then pin to catch the pin
