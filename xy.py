@@ -6,36 +6,23 @@ STEP=10
 root = tk.Tk()
 canvas = tk.Canvas(root, width=600, height=400, bg="black")
 canvas.pack()
+def loads(s):
+    img = Image.open(s).convert("RGBA")
+    data = img.getdata()
+    new_data = []
 
-img = Image.open("bit.png").convert("RGBA")
-img2 = Image.open("pin.png").convert("RGBA")
-data = img.getdata()
-new_data = []
+    for pixel in data:
+        # se for preto puro, fica transparente
+        if pixel[0] == 0 and pixel[1] == 0 and pixel[2] == 0:
+            new_data.append((0, 0, 0, 0))
+        else:
+            new_data.append(pixel)
 
-for pixel in data:
-    # se for preto puro, fica transparente
-    if pixel[0] == 0 and pixel[1] == 0 and pixel[2] == 0:
-        new_data.append((0, 0, 0, 0))
-    else:
-        new_data.append(pixel)
+    img.putdata(new_data)
 
-img.putdata(new_data)
-
-data = img2.getdata()
-new_data = []
-
-for pixel in data:
-    # se for preto puro, fica transparente
-    if pixel[0] == 0 and pixel[1] == 0 and pixel[2] == 0:
-        new_data.append((0, 0, 0, 0))
-    else:
-        new_data.append(pixel)
-
-img2.putdata(new_data)
-
-
-pic = ImageTk.PhotoImage(img)
-pic2 = ImageTk.PhotoImage(img2)
+    return img
+pic = ImageTk.PhotoImage(loads("bit.png"))
+pic2 = ImageTk.PhotoImage(loads("pin.png"))
 xy=[]
 for n in range(20):
     xx=int(int(random.random()*60)*10)
