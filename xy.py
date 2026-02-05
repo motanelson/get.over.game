@@ -20,7 +20,7 @@ def loads(s):
 
     img.putdata(new_data)
 
-    return img
+    return ImageTk.PhotoImage(img)
 def getxy():
     xy=[]
     for n in range(20):
@@ -28,19 +28,22 @@ def getxy():
         yy=int(int(random.random()*40)*10)
         xy=xy+[xx]+[yy]
     return xy
-pic = ImageTk.PhotoImage(loads("bit.png"))
-pic2 = ImageTk.PhotoImage(loads("pin.png"))
+def fillxy(lens):
+    h=[]
+    for n in range(0,lens):
+        h=h+[canvas.create_image(xy[n*2], xy[n*2+1], image=pic2)]
+    return h
+pic = loads("bit.png")
+pic2 =loads("pin.png")
 xy=getxy()
 xxx=50
 yyy=50
 xxxx=0
 yyyy=0
-h=[]
 score=0
-rect = canvas.create_image(xxx, yyy, image=pic)
 lens=int(len(xy)//2)
-for n in range(0,lens):
-    h=h+[canvas.create_image(xy[n*2], xy[n*2+1], image=pic2)]
+h=fillxy(lens)
+rect = canvas.create_image(xxx, yyy, image=pic)
 def move(event):
     global xxx,yyy,xxxx,yyyy,xy,lens,h,score
     if event.keysym == "Up":
